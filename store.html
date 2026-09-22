@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chokoneko - Store</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="morestyle.css">
+    <!-- EmailJS SDK -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function () {
+            emailjs.init("OwvcMMcpQn4hiiOyJJCdd"); // Remplacez par votre Public Key
+        })();
+    </script>
+</head>
+
+<body>
+
+    <!-- Main Navigation Header -->
+    <header class="main-header">
+        <div class="left-header-group">
+            <nav class="nav-links">
+                <a href="INDEX.HTML" class="nav-item">home</a>
+                <a href="profile.html" class="nav-item special-link">Profile</a>
+                <a href="blog.html" class="nav-item">blog -,-` ★ ,`-</a>
+                <a href="store.html" class="nav-item">store</a>
+                <a href="contact.html" class="nav-item">contact</a>
+                <a href="more.html" class="nav-item">more</a>
+            </nav>
+            <a href="login.html" id="nav-login-link">Login</a>
+            <div class="cart-btn" style="cursor: pointer;">
+                <span id="cartCounter">0</span> 🛒
+            </div>
+        </div>
+        <div class="center-title">ChokoNeko | شوكونيكو - المتجر</div>
+        <div class="right-logo">
+            <div class="logo-box"></div>
+        </div>
+    </header>
+
+    <!-- RETRO TV HARDWARE CONTAINER -->
+    <div class="retro-tv-container" id="retroTvWrapper">
+        <div class="tv-outer-shell">
+            <div class="tv-screen" id="tvScreenControl" style="position: relative; overflow: hidden;">
+
+                <div class="tv-content-layer active-layer" id="layerPowerOff">
+                    <div class="crt-off-screen">
+                        <span class="power-reminder-text">قم بتشغيل التلفاز من الزر الجانبي الأحمر 🕹️</span>
+                    </div>
+                </div>
+
+                <div class="tv-content-layer" id="layerChannels">
+                    <h2 class="tv-screen-title">اختر قناتك المفضلة 🚀</h2>
+                    <div class="channel-buttons-grid">
+
+                        <button class="channel-card-btn" data-channel="spacetoon">
+                            <img src="assets/images/spacetoon.png" alt="سبيستون" class="channel-img-asset">
+                        </button>
+
+                        <button class="channel-card-btn" data-channel="disney">
+                            <img src="assets/images/disney.png" alt="ديزني" class="channel-img-asset">
+                        </button>
+
+                        <button class="channel-card-btn" data-channel="nickelodeon">
+                            <img src="assets/images/neckolodeen.png" alt="نيكلوديون" class="channel-img-asset">
+                        </button>
+
+                    </div>
+                </div>
+
+                <div class="tv-content-layer" id="layerSpacetoon">
+                    <!-- Top Bar with Return Button -->
+                    <div class="spacetoon-screen-header">
+                        <button class="tv-back-btn" id="backToChannelsBtn">↩ القنوات</button>
+                        <span class="spacetoon-screen-title">منتجات سبيستون ☄️</span>
+                    </div>
+
+                    <!-- Direct Products Grid Inside the CRT Glass -->
+                    <div class="tv-items-grid" id="spacetoonDirectItems">
+                        <!-- Products render directly here -->
+                    </div>
+                </div>
+
+                <!-- DISNEY CHANNEL LAYER -->
+                <div class="tv-content-layer" id="layerDisney">
+                    <div class="spacetoon-screen-header">
+                        <button class="tv-back-btn channel-back-btn">↩ القنوات</button>
+                        <span class="spacetoon-screen-title">منتجات ديزني 🏰</span>
+                    </div>
+                    <div class="tv-items-grid" id="disneyDirectItems">
+                        <!-- Disney products will render here -->
+                    </div>
+                </div>
+
+                <!-- NICKELODEON CHANNEL LAYER -->
+                <div class="tv-content-layer" id="layerNickelodeon">
+                    <div class="spacetoon-screen-header">
+                        <button class="tv-back-btn channel-back-btn">↩ القنوات</button>
+                        <span class="spacetoon-screen-title">منتجات نيكلوديون 🧡</span>
+                    </div>
+                    <div class="tv-items-grid" id="nickelodeonDirectItems">
+                        <!-- Nickelodeon products will render here -->
+                    </div>
+                </div>
+            </div>
+
+            <div class="tv-side-panel">
+                <button class="tv-power-btn" id="tvPowerSwitchBtn">ON/OFF</button>
+                <div class="tv-knob"></div>
+                <div class="tv-knob"></div>
+                <div class="tv-speaker-grille"></div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- ========================================== -->
+    <!-- JEWELRY BUILDER SECTION                    -->
+    <!-- ========================================== -->
+
+    <div class="builder-trigger-wrapper">
+        <button id="toggle-builder-btn" class="builder-trigger-btn">
+            ↓ Build Custom Jewelry ✨
+        </button>
+    </div>
+
+    <section id="builder-drawer" class="pink-section-drawer">
+        <div class="stitched-divider"></div>
+
+        <div class="pink-content">
+            <div class="game-grid">
+                <h1>Jewelry Builder</h1>
+                <p class="subtitle">Design your custom charm setup below!</p>
+
+                <div class="mode-tabs">
+                    <button type="button" class="tab-btn active" data-mode="1">1 Chain</button>
+                    <button type="button" class="tab-btn" data-mode="2">2 Chains</button>
+                    <button type="button" class="tab-btn" data-mode="3">3 Chains</button>
+                </div>
+
+                <select id="holder-select">
+                    <option value="phone">Phone holder</option>
+                    <option value="keychain">Keychain holder</option>
+                </select>
+
+                <div id="controls-row" class="controls-row"></div>
+
+                <div class="bead-options">
+                    <div class="bead-item" data-name="BIG Ball" data-price="50">
+                        <h3>BIG Ball</h3>
+                        <p>50 DA</p>
+                    </div>
+                    <div class="bead-item" data-name="Cute thing" data-price="70">
+                        <h3>Cute thing</h3>
+                        <p>70 DA</p>
+                    </div>
+                    <div class="bead-item" data-name="STAR" data-price="50">
+                        <h3>STAR</h3>
+                        <p>50 DA</p>
+                    </div>
+                    <div class="bead-item" data-name="fake-silver" data-price="65">
+                        <h3>fake-silver</h3>
+                        <p>65 DA</p>
+                    </div>
+                    <div class="bead-item" data-name="SPECIAL ITEM" data-price="100">
+                        <h3>SPECIAL ITEM</h3>
+                        <p>100 DA</p>
+                    </div>
+                    <div class="bead-item" data-name="SMALL BALL" data-price="30">
+                        <h3>SMALL BALL</h3>
+                        <p>30 DA</p>
+                    </div>
+                </div>
+
+                <div id="chains-container" class="chains-container mode-1"></div>
+
+                <div class="price-box">Total: <span id="total-price">0 DA</span></div>
+
+                <div class="builder-buttons">
+                    <button type="button" id="reset-btn" class="reset-btn">Remove All</button>
+                    <button type="button" id="confirm-btn" class="confirm-btn">Confirm Design</button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ============================================================================================== -->
+    <!-- PRODUCT & CHECKOUT MODAL -->
+    <div id="productModal" class="modal-overlay">
+        <div class="modal-card">
+            <button type="button" id="closeModalBtn" class="modal-close-btn">&times;</button>
+
+            <!-- STEP 1: PRODUCT PREVIEW -->
+            <div id="modalProductView">
+                <div class="modal-img-box">
+                    <img id="modalProductImg" src="" alt="Product Image">
+                </div>
+                <h3 id="modalProductName">اسم المنتج</h3>
+                <div id="modalProductPrice" class="modal-price">0 DA</div>
+
+                <!-- QUANTITY CONTROLS -->
+                <div class="qty-control">
+                    <label>الكمية:</label>
+                    <div class="qty-btn-group">
+                        <button type="button" id="qtyMinus" class="qty-btn">-</button>
+                        <input type="text" id="qtyInput" value="1" readonly>
+                        <button type="button" id="qtyPlus" class="qty-btn">+</button>
+                    </div>
+                </div>
+
+                <div class="modal-actions">
+                    <button type="button" id="addToCartBtn" class="modal-btn btn-cart">إضافة للسلة 🛒</button>
+                    <button type="button" id="directBuyBtn" class="modal-btn btn-buy">شراء مباشرة ⚡</button>
+                </div>
+            </div>
+
+            <!-- STEP 2: DIRECT CHECKOUT FORM -->
+            <form id="modalCheckoutForm" style="display: none;">
+                <h4 class="form-title">معلومات التوصيل 📦</h4>
+                <div class="form-grid">
+                    <div class="form-group full-width">
+                        <label>الاسم الكامل *</label>
+                        <input type="text" id="custName" required placeholder="مثال: أمينة بن علي">
+                    </div>
+                    <div class="form-group full-width">
+                        <label>رقم الهاتف *</label>
+                        <input type="tel" id="custPhone" required placeholder="06XX XX XX XX">
+                    </div>
+                    <div class="form-group">
+                        <label>الولاية *</label>
+                        <input type="text" id="custWilaya" required placeholder="الجزائر">
+                    </div>
+                    <div class="form-group">
+                        <label>البلدية *</label>
+                        <input type="text" id="custCommune" required placeholder="القبة">
+                    </div>
+                    <div class="form-group full-width">
+                        <label>العنوان التفصيلي</label>
+                        <input type="text" id="custAddress" placeholder="الحي، شارع...">
+                    </div>
+                    <div class="form-group full-width">
+                        <label>حساب الانستغرام (اختياري)</label>
+                        <input type="text" id="custInstagram" placeholder="@username">
+                    </div>
+                    <div class="form-group full-width">
+                        <label>ملاحظات إضافية</label>
+                        <textarea id="custNotes" rows="2" placeholder="أي ملاحظة بخصوص الطلب..."></textarea>
+                    </div>
+                </div>
+
+                <div class="modal-actions">
+                    <button type="button" id="backToProductBtn" class="modal-btn btn-back-modal">تراجع</button>
+                    <button type="submit" class="modal-btn btn-submit">تأكيد الطلب ✉️</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- CART DRAWER / OVERLAY (NOW OUTSIDE PRODUCT MODAL) -->
+    <div id="cartDrawer" class="cart-drawer-overlay">
+        <div class="cart-drawer">
+            <div class="cart-drawer-header">
+                <h3>سلة التسوق 🛒</h3>
+                <button type="button" id="closeCartBtn" class="cart-close-btn">&times;</button>
+            </div>
+
+            <!-- Dynamic Cart Items Container -->
+            <div id="cartItemsContainer" class="cart-items-container">
+                <p class="empty-cart-msg">السلة فارغة حالياً 🌸</p>
+            </div>
+
+            <!-- Footer with Total & Checkout -->
+            <div class="cart-drawer-footer">
+                <div class="cart-total-box">
+                    <span>المجموع الكلي:</span>
+                    <span id="cartTotalPrice">0 DA</span>
+                </div>
+                <button type="button" id="cartCheckoutBtn" class="modal-btn btn-buy" style="width: 100%;">إتمام الطلب
+                    ⚡</button>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script src="script.js"></script>
+</body>
+
+</html>

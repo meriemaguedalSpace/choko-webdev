@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chokoneko - More</title>
+    <!-- استدعاء الخطوط -->
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="morestyle.css">
+</head>
+
+<body>
+
+    <!-- الهيدر العلوي الثابت -->
+    <header class="main-header">
+        <div class="left-header-group">
+            <nav class="nav-links">
+                <a href="index.html" class="nav-item">home</a>
+                <a href="profile.html" class="nav-item special-link">Profile</a>
+                <a href="blog.html" class="nav-item">blog -,-` ★ ,`-</a>
+                <a href="store.html" class="nav-item">store</a>
+                <a href="contact.html" class="nav-item">contact</a>
+                <a href="more.html" class="nav-item">more</a>
+            </nav>
+            <a href="login.html" id="nav-login-link">Login</a>
+            <div class="cart-btn" style="cursor: pointer;">
+                <span id="cartCounter">0</span> 🛒
+            </div>
+        </div>
+        <div class="center-title">ChokoNeko | شوكونيكو - فضاء الذكريات</div>
+        <div class="right-logo">
+            <div class="logo-box"></div>
+        </div>
+    </header>
+
+    <!-- حاوية المحتوى الوسطى -->
+    <div class="page-content-wrapper">
+        <section class="about-section">
+            <div class="about-container-grid">
+
+                <!-- الطرف الأيسر: نص من هي شوكو فقط -->
+                <div class="about-column-left">
+                    <h2 class="section-heading-top">من هي شوكو حقاً؟</h2>
+                    <p class="section-paragraph-text">
+                        شوكو هي فتاة تلجئ الى عالمها الخاص، عالم مليء بالذكريات والحنين. في هذا العالم، تجد الراحة
+                        والطمأنينة بعيداً عن ضغوط الحياة اليومية. شوكو ليست مجرد شخصية عادية، بل هي رمز للحنين والدفء
+                        الذي يشعر به الجميع تجاه الماضي الجميل. من خلال منتجاتنا، نسعى لإحياء هذا الشعور وجلب لمسة من
+                        السعادة والراحة إلى حياتكم اليومية.
+                    </p>
+                </div>
+
+                <!-- الطرف الأيمن: صورة الآرت الكبيرة -->
+                <div class="about-column-right">
+                    <img src="assets/images/ChokoContact.png" alt="ChokoNeko Profile" class="big-profile-img">
+                </div>
+
+            </div>
+        </section>
+    </div>
+    <!-- PRODUCT & CHECKOUT MODAL -->
+    <div id="productModal" class="modal-overlay">
+        <div class="modal-card">
+            <button type="button" id="closeModalBtn" class="modal-close-btn">&times;</button>
+
+            <!-- STEP 1: PRODUCT PREVIEW -->
+            <div id="modalProductView">
+                <div class="modal-img-box">
+                    <img id="modalProductImg" src="" alt="Product Image">
+                </div>
+                <h3 id="modalProductName">اسم المنتج</h3>
+                <div id="modalProductPrice" class="modal-price">0 DA</div>
+
+                <!-- QUANTITY CONTROLS -->
+                <div class="qty-control">
+                    <label>الكمية:</label>
+                    <div class="qty-btn-group">
+                        <button type="button" id="qtyMinus" class="qty-btn">-</button>
+                        <input type="text" id="qtyInput" value="1" readonly>
+                        <button type="button" id="qtyPlus" class="qty-btn">+</button>
+                    </div>
+                </div>
+
+                <div class="modal-actions">
+                    <button type="button" id="addToCartBtn" class="modal-btn btn-cart">إضافة للسلة 🛒</button>
+                    <button type="button" id="directBuyBtn" class="modal-btn btn-buy">شراء مباشرة ⚡</button>
+                </div>
+            </div>
+
+            <!-- STEP 2: DIRECT CHECKOUT FORM -->
+            <form id="modalCheckoutForm" style="display: none;">
+                <h4 class="form-title">معلومات التوصيل 📦</h4>
+                <div class="form-grid">
+                    <div class="form-group full-width">
+                        <label>الاسم الكامل *</label>
+                        <input type="text" id="custName" required placeholder="مثال: أمينة بن علي">
+                    </div>
+                    <div class="form-group full-width">
+                        <label>رقم الهاتف *</label>
+                        <input type="tel" id="custPhone" required placeholder="06XX XX XX XX">
+                    </div>
+                    <div class="form-group">
+                        <label>الولاية *</label>
+                        <input type="text" id="custWilaya" required placeholder="الجزائر">
+                    </div>
+                    <div class="form-group">
+                        <label>البلدية *</label>
+                        <input type="text" id="custCommune" required placeholder="القبة">
+                    </div>
+                    <div class="form-group full-width">
+                        <label>العنوان التفصيلي</label>
+                        <input type="text" id="custAddress" placeholder="الحي، شارع...">
+                    </div>
+                    <div class="form-group full-width">
+                        <label>حساب الانستغرام (اختياري)</label>
+                        <input type="text" id="custInstagram" placeholder="@username">
+                    </div>
+                    <div class="form-group full-width">
+                        <label>ملاحظات إضافية</label>
+                        <textarea id="custNotes" rows="2" placeholder="أي ملاحظة بخصوص الطلب..."></textarea>
+                    </div>
+                </div>
+
+                <div class="modal-actions">
+                    <button type="button" id="backToProductBtn" class="modal-btn btn-back-modal">تراجع</button>
+                    <button type="submit" class="modal-btn btn-submit">تأكيد الطلب ✉️</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- CART DRAWER / OVERLAY (NOW OUTSIDE PRODUCT MODAL) -->
+    <div id="cartDrawer" class="cart-drawer-overlay">
+        <div class="cart-drawer">
+            <div class="cart-drawer-header">
+                <h3>سلة التسوق 🛒</h3>
+                <button type="button" id="closeCartBtn" class="cart-close-btn">&times;</button>
+            </div>
+
+            <!-- Dynamic Cart Items Container -->
+            <div id="cartItemsContainer" class="cart-items-container">
+                <p class="empty-cart-msg">السلة فارغة حالياً 🌸</p>
+            </div>
+
+            <!-- Footer with Total & Checkout -->
+            <div class="cart-drawer-footer">
+                <div class="cart-total-box">
+                    <span>المجموع الكلي:</span>
+                    <span id="cartTotalPrice">0 DA</span>
+                </div>
+                <button type="button" id="cartCheckoutBtn" class="modal-btn btn-buy" style="width: 100%;">إتمام الطلب
+                    ⚡</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

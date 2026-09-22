@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chokoneko - Account</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css folders/style.css">
+    <link rel="stylesheet" href="css folders/morestyle.css">
+</head>
+
+<body>
+
+    <header class="main-header">
+        <div class="left-header-group">
+            <nav class="nav-links">
+                <a href="index.html" class="nav-item">home</a>
+                <a href="profile.html" class="nav-item special-link" id="nav-profile-link">Profile</a>
+                <a href="blog.html" class="nav-item">blog -,-` ★ ,`-</a>
+                <a href="store.html" class="nav-item">store</a>
+                <a href="contact.html" class="nav-item">contact</a>
+                <a href="more.html" class="nav-item">more</a>
+            </nav>
+            <a href="login.html" id="nav-login-link">Login</a>
+            <div class="cart-btn">
+                <span class="cart-icon">🛒</span>
+                <span class="cart-count">0</span>
+            </div>
+        </div>
+        <div class="center-title">ChokoNeko | شوكونيكو - فضاء الذكريات</div>
+        <div class="right-logo">
+            <div class="logo-box"></div>
+        </div>
+    </header>
+
+    <div class="page-content-wrapper">
+        <section class="login-section">
+            <div class="login-card">
+                <h2 class="login-card-title">إنشاء حساب جديد 🐾</h2>
+                <p class="login-card-subtitle">أنشئ حسابك الآن لتتمكن من التسوق وحفظ ذكرياتك المفضلة</p>
+
+                <form class="login-form" action="#" method="POST">
+                    <div class="login-field-group">
+                        <label for="username">اسم المستخدم</label>
+                        <input type="text" id="username" name="username" placeholder="ChokoFan" required>
+                    </div>
+
+                    <div class="login-field-group">
+                        <label for="email">البريد الإلكتروني</label>
+                        <input type="email" id="email" name="email" placeholder="choko@example.com" required>
+                    </div>
+
+                    <div class="login-field-group">
+                        <label for="password">كلمة المرور</label>
+                        <input type="password" id="password" name="password" placeholder="••••••••" required>
+                    </div>
+
+                    <button type="submit" class="login-submit-btn">إنشاء الحساب</button>
+                    <div class="login-column-box center-flex-column">
+                        <h4 class="dive-in-title">هل لديك حساب بالفعل؟</h4>
+                        <p class="dive-in-subtitle">سجل دخولك الآن لتتابع رحلتك في فضاء الذكريات</p>
+                        <a href="exisacc.html" class="dive-in-pill-link outline-brown-btn">تسجيل الدخول ✨</a>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </div>
+
+    <!-- CART DRAWER SIDEBAR -->
+    <div id="cartDrawer" class="cart-drawer">
+        <div class="cart-drawer-content">
+            <div class="cart-drawer-header">
+                <h3>سلة التسوق 🛒</h3>
+                <button id="closeCartBtn" class="close-btn">&times;</button>
+            </div>
+            <div id="cartItemsContainer" class="cart-items-container">
+                <!-- Items render dynamically from script.js -->
+            </div>
+            <div class="cart-drawer-footer">
+                <div class="total-price-row">
+                    <span>المجموع الكلي:</span>
+                    <span id="cartTotalPrice">0 DA</span>
+                </div>
+                <button id="cartCheckoutBtn" class="checkout-btn">إتمام الطلب ⚡</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- CHECKOUT & PRODUCT MODAL -->
+    <div id="productModal" class="modal-overlay">
+        <div class="modal-box">
+            <button id="closeModalBtn" class="close-btn">&times;</button>
+
+            <div id="modalProductView">
+                <img id="modalProductImg" src="" alt="Product">
+                <h3 id="modalProductName"></h3>
+                <p id="modalProductPrice"></p>
+                <div class="qty-selector">
+                    <button id="qtyMinus">-</button>
+                    <input type="number" id="qtyInput" value="1" min="1" readonly>
+                    <button id="qtyPlus">+</button>
+                </div>
+                <button id="addToCartBtn" class="action-btn">إضافة للسلة 🛒</button>
+                <button id="directBuyBtn" class="action-btn direct">شراء الآن ⚡</button>
+            </div>
+
+            <form id="modalCheckoutForm" style="display: none;">
+                <h3>معلومات التوصيل 🚚</h3>
+                <input type="text" id="custName" placeholder="الاسم الكامل" required>
+                <input type="tel" id="custPhone" placeholder="رقم الهاتف" required>
+                <input type="text" id="custWilaya" placeholder="الولاية" required>
+                <input type="text" id="custCommune" placeholder="البلدية" required>
+                <input type="text" id="custAddress" placeholder="العنوان التفصيلي">
+                <input type="text" id="custInstagram" placeholder="حساب إنستغرام (اختياري)">
+                <textarea id="custNotes" placeholder="ملاحظات إضافية"></textarea>
+                <div class="form-buttons">
+                    <button type="button" id="backToProductBtn" class="back-btn">رجوع</button>
+                    <button type="submit" class="submit-btn">تأكيد الطلب ✨</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

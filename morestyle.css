@@ -1,0 +1,176 @@
+/* --- إعادة تهيئة الصفحة العامة --- */
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    min-height: 100vh;
+    background-color: #4a2c2a; /* لون الحليب بالشوكولاتة البني الخلفي */
+    font-family: 'Fredoka', sans-serif;
+    box-sizing: border-box;
+    display: block; /* يمنع تداخل الـ Flex العلوي والسفلي */
+}
+
+/* --- الهيدر الرئيسي وتنسيقه العرضي --- */
+.main-header {
+    width: 100%;
+    background-color: #361f1e; 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    box-sizing: border-box;
+}
+
+/* --- الحاوية لتوسيط البطاقات الوردية --- */
+.page-content-wrapper {
+    width: 100%;
+    min-height: calc(100vh - 80px); /* يطرح طول الهيدر لمنع النزول اللانهائي */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+    box-sizing: border-box;
+}
+
+/* --- شبكة البطاقة الوردية (مشترك لـ More و Contact) --- */
+.about-container-grid,
+.social-container-grid {
+    background-color: #ffe5ec; /* حليب الفراولة الوردي الكيوت */
+    background-image: 
+        linear-gradient(to right, rgba(255, 182, 193, 0.4) 2px, transparent 2px),
+        linear-gradient(to bottom, rgba(255, 182, 193, 0.4) 2px, transparent 2px);
+    background-size: 45px 45px; /* مربعات الشبكة الكبيرة الكيوت */
+    
+    border: 4px solid #ffb6c1;
+    border-radius: 24px;
+    max-width: 1350px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* تقسيم عادل 50% لكل طرف لإعطاء الصورة مساحة ممتازة */
+    gap: 40px;
+    padding: 50px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    align-items: center;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+/* --- محاذاة العمود الأيسر للنصوص والأزرار --- */
+.about-column-left,
+.social-column-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    box-sizing: border-box;
+}
+
+[dir="rtl"] .about-column-left,
+[dir="rtl"] .social-column-left {
+    text-align: right;
+    align-items: flex-start;
+}
+
+/* --- تنسيقات نصوص صفحة More --- */
+.section-heading-top {
+    color: #4a2c2a;
+    font-size: 2.6rem;
+    margin: 0 0 20px 0;
+}
+
+.section-paragraph-text {
+    color: #361f1e;
+    font-size: 1.35rem;
+    line-height: 1.8;
+}
+
+/* --- تنسيقات نصوص صفحة Contact --- */
+.social-title {
+    color: #4a2c2a;
+    font-size: 2.4rem;
+    margin: 0 0 10px 0;
+}
+
+.social-subtitle {
+    color: #70423e;
+    font-size: 1.2rem;
+    margin: 0 0 20px 0;
+}
+
+/* --- أزرار كبسولات مواقع التواصل (الستايل القديم الأصلي) --- */
+.social-links-wrapper {
+    display: flex;
+    flex-direction: row; 
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.social-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 12px 28px;
+    border-radius: 50px; /* شكل الكبسولة البيضاء الدائرية */
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    background-color: #ffffff;
+}
+
+.instagram-btn {
+    border: 2px solid #d62976;
+    color: #d62976;
+}
+
+.tiktok-btn {
+    border: 2px solid #000000;
+    color: #000000;
+}
+
+.social-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* --- تنسيق الصور وحجمها الكبير في الـ CSS --- */
+.about-column-right,
+.social-column-right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.big-profile-img,
+.big-social-img {
+    width: 100%;
+    max-width: 650px; /* الحجم الكبير والواضح للآرت */
+    height: auto;
+    object-fit: contain;
+    border-radius: 16px;
+    filter: drop-shadow(0 6px 12px rgba(0,0,0,0.15));
+}
+
+/* --- التوافق مع الشاشات الصغيرة (الجوال) --- */
+@media (max-width: 950px) {
+    .about-container-grid,
+    .social-container-grid {
+        grid-template-columns: 1fr;
+        gap: 35px;
+        padding: 25px;
+    }
+    .about-column-left,
+    .social-column-left {
+        order: 2; /* يضع النص في الأسفل عند قلب الشاشة لجوال */
+    }
+    .about-column-right,
+    .social-column-right {
+        order: 1; /* يضع الصورة في الأعلى عند قلب الشاشة لجوال */
+    }
+    .big-profile-img,
+    .big-social-img {
+        max-width: 400px;
+    }
+}

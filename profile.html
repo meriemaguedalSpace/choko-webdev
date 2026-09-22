@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChokoNeko | الملف الشخصي</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- EmailJS SDK -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function () {
+            emailjs.init("OwvcMMcpQn4hiiOyJJCdd"); // Remplacez par votre Public Key
+        })();
+    </script>
+</head>
+
+<body>
+
+    <header class="main-header">
+        <div class="left-header-group">
+            <nav class="nav-links">
+                <a href="index.html" class="nav-item">home</a>
+                <a href="profile.html" class="nav-item special-link" id="nav-profile-link">Profile</a>
+                <a href="blog.html" class="nav-item">blog -,-` ★ ,`-</a>
+                <a href="store.html" class="nav-item">store</a>
+                <a href="contact.html" class="nav-item">contact</a>
+                <a href="more.html" class="nav-item">more</a>
+            </nav>
+            <a href="login.html" id="nav-login-link">Login</a>
+            <div class="cart-btn" style="cursor: pointer;">
+                <span id="cartCounter">0</span> 🛒
+            </div>
+        </div>
+        <div class="center-title">ChokoNeko | شوكونيكو - فضاء الذكريات</div>
+        <div class="right-logo">
+            <div class="logo-box"></div>
+        </div>
+    </header>
+
+    <div class="profile-container">
+        <aside class="profile-sidebar">
+            <div class="user-card">
+                <div class="avatar-wrapper">
+                    <div class="avatar-circle">C</div>
+                    <img src="" alt="Profile Avatar" class="avatar-img hidden" id="avatarImage">
+                    <label for="avatarInput" class="avatar-upload-btn" title="تغيير الصورة">📷</label>
+                    <input type="file" id="avatarInput" class="hidden-input" accept="image/*">
+                </div>
+                <h3>اسم المستخدم</h3>
+                <p>choko@example.com</p>
+                <span class="user-badge">عضو مميز 🐾</span>
+            </div>
+
+            <nav class="profile-menu">
+                <button class="menu-btn active" onclick="switchTab('info', event)">👤 المعلومات الشخصية</button>
+                <button class="menu-btn" onclick="switchTab('orders', event)">📦 طلباتي</button>
+                <button class="menu-btn" onclick="switchTab('settings', event)">⚙️ إعدادات الحساب</button>
+                <button class="menu-btn logout-btn" onclick="location.href='index.html'">🚪 تسجيل الخروج</button>
+            </nav>
+        </aside>
+
+        <main class="profile-content">
+            <section id="info-section" class="profile-section active">
+                <h2>المعلومات الشخصية</h2>
+                <form class="profile-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="fullName">الاسم الكامل</label>
+                            <input type="text" id="fullName" placeholder="Choko Fan">
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">رقم الهاتف</label>
+                            <input type="tel" id="phone" placeholder="06XXXXXXXX">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="userBio">نبذة عنك</label>
+                        <textarea id="userBio" rows="3" placeholder="اكتب شيئاً عن نفسك..."></textarea>
+                    </div>
+                    <button type="button" class="save-btn">حفظ التغييرات</button>
+                </form>
+            </section>
+
+            <section id="orders-section" class="profile-section">
+                <h2>طلباتي</h2>
+                <p class="empty-msg">لا توجد طلبات حالية حتى الآن 🛒</p>
+            </section>
+
+            <section id="settings-section" class="profile-section">
+                <h2>إعدادات الحساب</h2>
+                <form class="profile-form">
+                    <div class="form-group">
+                        <label for="currPassword">كلمة المرور الحالية</label>
+                        <input type="password" id="currPassword">
+                    </div>
+                    <div class="form-group">
+                        <label for="newPassword">كلمة المرور الجديدة</label>
+                        <input type="password" id="newPassword">
+                    </div>
+                    <button type="button" class="save-btn">تحديث كلمة المرور</button>
+                </form>
+            </section>
+        </main>
+    </div>
+
+    <!-- PRODUCT & CHECKOUT MODAL -->
+    <div id="productModal" class="modal-overlay">
+        <div class="modal-card">
+            <button type="button" id="closeModalBtn" class="modal-close-btn">&times;</button>
+
+            <!-- STEP 1: PRODUCT PREVIEW -->
+            <div id="modalProductView">
+                <div class="modal-img-box">
+                    <img id="modalProductImg" src="" alt="Product Image">
+                </div>
+                <h3 id="modalProductName">اسم المنتج</h3>
+                <div id="modalProductPrice" class="modal-price">0 DA</div>
+
+                <!-- QUANTITY CONTROLS -->
+                <div class="qty-control">
+                    <label>الكمية:</label>
+                    <div class="qty-btn-group">
+                        <button type="button" id="qtyMinus" class="qty-btn">-</button>
+                        <input type="text" id="qtyInput" value="1" readonly>
+                        <button type="button" id="qtyPlus" class="qty-btn">+</button>
+                    </div>
+                </div>
+
+                <div class="modal-actions">
+                    <button type="button" id="addToCartBtn" class="modal-btn btn-cart">إضافة للسلة 🛒</button>
+                    <button type="button" id="directBuyBtn" class="modal-btn btn-buy">شراء مباشرة ⚡</button>
+                </div>
+            </div>
+
+            <!-- STEP 2: DIRECT CHECKOUT FORM -->
+            <form id="modalCheckoutForm" style="display: none;">
+                <h4 class="form-title">معلومات التوصيل 📦</h4>
+                <div class="form-grid">
+                    <div class="form-group full-width">
+                        <label>الاسم الكامل *</label>
+                        <input type="text" id="custName" required placeholder="مثال: أمينة بن علي">
+                    </div>
+                    <div class="form-group full-width">
+                        <label>رقم الهاتف *</label>
+                        <input type="tel" id="custPhone" required placeholder="06XX XX XX XX">
+                    </div>
+                    <div class="form-group">
+                        <label>الولاية *</label>
+                        <input type="text" id="custWilaya" required placeholder="الجزائر">
+                    </div>
+                    <div class="form-group">
+                        <label>البلدية *</label>
+                        <input type="text" id="custCommune" required placeholder="الرغاية">
+                    </div>
+                    <div class="form-group full-width">
+                        <label>العنوان التفصيلي</label>
+                        <input type="text" id="custAddress" placeholder="الحي، شارع...">
+                    </div>
+                    <div class="form-group full-width">
+                        <label>حساب الانستغرام (اختياري)</label>
+                        <input type="text" id="custInstagram" placeholder="@username">
+                    </div>
+                    <div class="form-group full-width">
+                        <label>ملاحظات إضافية</label>
+                        <textarea id="custNotes" rows="2" placeholder="أي ملاحظة بخصوص الطلب..."></textarea>
+                    </div>
+                </div>
+
+                <div class="modal-actions">
+                    <button type="button" id="backToProductBtn" class="modal-btn btn-back-modal">تراجع</button>
+                    <button type="submit" class="modal-btn btn-submit">تأكيد الطلب ✉️</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- CART DRAWER / OVERLAY (NOW OUTSIDE PRODUCT MODAL) -->
+    <div id="cartDrawer" class="cart-drawer-overlay">
+        <div class="cart-drawer">
+            <div class="cart-drawer-header">
+                <h3>سلة التسوق 🛒</h3>
+                <button type="button" id="closeCartBtn" class="cart-close-btn">&times;</button>
+            </div>
+
+            <!-- Dynamic Cart Items Container -->
+            <div id="cartItemsContainer" class="cart-items-container">
+                <p class="empty-cart-msg">السلة فارغة حالياً 🌸</p>
+            </div>
+
+            <!-- Footer with Total & Checkout -->
+            <div class="cart-drawer-footer">
+                <div class="cart-total-box">
+                    <span>المجموع الكلي:</span>
+                    <span id="cartTotalPrice">0 DA</span>
+                </div>
+                <button type="button" id="cartCheckoutBtn" class="modal-btn btn-buy" style="width: 100%;">إتمام الطلب
+                    ⚡</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- CART DRAWER SIDEBAR -->
+    <div id="cartDrawer" class="cart-drawer">
+        <div class="cart-drawer-content">
+            <div class="cart-drawer-header">
+                <h3>سلة التسوق 🛒</h3>
+                <button id="closeCartBtn" class="close-btn">&times;</button>
+            </div>
+            <div id="cartItemsContainer" class="cart-items-container">
+                <!-- Items render dynamically from script.js -->
+            </div>
+            <div class="cart-drawer-footer">
+                <div class="total-price-row">
+                    <span>المجموع الكلي:</span>
+                    <span id="cartTotalPrice">0 DA</span>
+                </div>
+                <button id="cartCheckoutBtn" class="checkout-btn">إتمام الطلب ⚡</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- CHECKOUT & PRODUCT MODAL -->
+    <div id="productModal" class="modal-overlay">
+        <div class="modal-box">
+            <button id="closeModalBtn" class="close-btn">&times;</button>
+
+            <div id="modalProductView">
+                <img id="modalProductImg" src="" alt="Product">
+                <h3 id="modalProductName"></h3>
+                <p id="modalProductPrice"></p>
+                <div class="qty-selector">
+                    <button id="qtyMinus">-</button>
+                    <input type="number" id="qtyInput" value="1" min="1" readonly>
+                    <button id="qtyPlus">+</button>
+                </div>
+                <button id="addToCartBtn" class="action-btn">إضافة للسلة 🛒</button>
+                <button id="directBuyBtn" class="action-btn direct">شراء الآن ⚡</button>
+            </div>
+
+            <form id="modalCheckoutForm" style="display: none;">
+                <h3>معلومات التوصيل 🚚</h3>
+                <input type="text" id="custName" placeholder="الاسم الكامل" required>
+                <input type="tel" id="custPhone" placeholder="رقم الهاتف" required>
+                <input type="text" id="custWilaya" placeholder="الولاية" required>
+                <input type="text" id="custCommune" placeholder="البلدية" required>
+                <input type="text" id="custAddress" placeholder="العنوان التفصيلي">
+                <input type="text" id="custInstagram" placeholder="حساب إنستغرام (اختياري)">
+                <textarea id="custNotes" placeholder="ملاحظات إضافية"></textarea>
+                <div class="form-buttons">
+                    <button type="button" id="backToProductBtn" class="back-btn">رجوع</button>
+                    <button type="submit" class="submit-btn">تأكيد الطلب ✨</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

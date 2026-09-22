@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chokoneko</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <!-- EmailJS SDK -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function () {
+            emailjs.init("OwvcMMcpQn4hiiOyJJCdd"); // Remplacez par votre Public Key
+        })();
+    </script>
+</head>
+
+<body>
+
+    <header class="main-header">
+        <div class="left-header-group">
+            <nav class="nav-links">
+                <a href="index.html" class="nav-item">home</a>
+                <a href="profile.html" class="nav-item special-link">Profile</a>
+                <a href="blog.html" class="nav-item">blog -,-` ★ ,`-</a>
+                <a href="store.html" class="nav-item">store</a>
+                <a href="contact.html" class="nav-item">contact</a>
+                <a href="more.html" class="nav-item">more</a>
+            </nav>
+
+            <a href="login.html" class="login-btn">Login</a>
+            <div class="cart-btn" style="cursor: pointer;">
+                <span id="cartCounter">0</span> 🛒
+            </div>
+        </div>
+
+        <div class="center-title">ChokoNeko | شوكونيكو - فضاء الذكريات</div>
+
+        <div class="right-logo">
+            <div class="logo-box"></div>
+        </div>
+    </header>
+
+    <div class="marquee-wrapper">
+        <div class="marquee-bar bar-top">
+            <div class="marquee-content">
+                <span>اطلبوا الآن PRE-ORDER NOW ☆☆☆ اطلبوا الآن PRE-ORDER NOW ☆☆☆ اطلبوا الآن PRE-ORDER NOW
+                    <span>☆☆☆اطلبوا الآن PRE-ORDER NOW ☆☆☆ اطلبوا الآن PRE-ORDER NOW ☆☆☆ اطلبوا الآن PRE-ORDER NOW
+                        <span>☆☆☆اطلبوا الآن PRE-ORDER NOW ☆☆☆ اطلبوا الآن PRE-ORDER NOW ☆☆☆ اطلبوا الآن PRE-ORDER NOW
+                            <span>☆☆☆اطلبوا الآن PRE-ORDER NOW ☆☆☆ اطلبوا الآن PRE-ORDER NOW ☆☆☆ اطلبوا الآن PRE-ORDER
+                                NOW
+                                <span>☆☆☆ اطلبوا الآن PRE-ORDER NOW ☆☆☆ اطلبوا الآن PRE-ORDER NOW ☆☆☆ اطلبوا الآن
+                                    PRE-ORDER NOW</span>
+                            </span>
+                        </span>
+                    </span>
+                </span>
+            </div>
+        </div>
+
+        <div class="marquee-bar bar-bottom">
+            <div class="marquee-content">
+                <span>◌̊ ChokoNeko BLOG ̊◌̊♡ مدونة شوكونيكو ♡°◌̊ ChokoNeko BLOG ̊◌̊♡ مدونة شوكونيكو ♡°◌̊ ChokoNeko
+                    BLOG♡°◌̊
+                    <span>◌̊ ChokoNeko BLOG ̊◌̊♡ مدونة شوكونيكو ♡°◌̊ ChokoNeko BLOG ̊◌̊♡ مدونة شوكونيكو ♡°◌̊ ChokoNeko
+                        BLOG♡°◌̊
+                        <span>♡°◌̊ ChokoNeko BLOG ̊◌̊♡ مدونة شوكونيكو ♡°◌̊ ChokoNeko BLOG ̊◌̊♡ مدونة شوكونيكو ♡°◌̊
+                            <span>♡°◌̊ ChokoNeko BLOG ̊◌̊♡ مدونة شوكونيكو ♡°◌̊ ChokoNeko BLOG ̊◌̊♡ مدونة شوكونيكو ♡°◌̊
+                                <span>♡°◌̊ ChokoNeko BLOG ̊◌̊♡ مدونة شوكونيكو ♡°◌̊ ChokoNeko BLOG ̊◌̊♡ مدونة شوكونيكو
+                                    ♡°◌̊</span>
+                            </span>
+                        </span>
+                    </span>
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <main class="hero-slider-container">
+        <button class="slider-arrow arrow-left" id="prevBtn" aria-label="Previous Slide">&#10094;</button>
+        <button class="slider-arrow arrow-right" id="nextBtn" aria-label="Next Slide">&#10095;</button>
+
+        <div class="slider-track" id="sliderTrack">
+            <div class="slide">
+                <img src="assets/images/slide1.png" alt="ChokoNeko Feature 1"
+                    onerror="this.src='https://images.unsplash.com/photo-1542838132-92c53300491e?q=80&w=1200';">
+            </div>
+            <div class="slide">
+                <img src="assets/images/slide2.png" alt="ChokoNeko Feature 2"
+                    onerror="this.src='https://images.unsplash.com/photo-1513151233558-d860c5398176?q=80&w=1200';">
+            </div>
+            <div class="slide">
+                <img src="assets/images/slide3.png" alt="ChokoNeko Feature 3"
+                    onerror="this.src='https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=1200';">
+            </div>
+        </div>
+
+        <div class="slider-accent-ribbon"></div>
+    </main>
+
+    <section class="welcome-section">
+        <div class="welcome-content">
+            <h1 class="welcome-title">اهلا, اقضوا وقتكم مع شوكو</h1>
+            <p class="welcome-description">اكتشفوا عالم شوكونيكو الساحر، حيث تلتقي الذكريات بالخيال في تجربة فريدة من
+                نوعها.</p>
+        </div>
+    </section>
+
+    <section class="intro-section">
+        <div class="intro-container-grid">
+            <div class="intro-column-left">
+                <img src="assets/images/logochoko.png" alt="chokoneko logo intro">
+            </div>
+            <div class="intro-column-right">
+                <h2 class="intro-title">من نحن؟</h2>
+                <p class="intro-description">نحن فريق شغوف يهدف إلى إعادة إحياء الذكريات الجميلة من خلال منتجاتنا
+                    الفريدة والمميزة. مع شوكونيكو، نؤمن بأن كل منتج يحمل قصة، ونحن هنا لنرويها لكم.</p>
+                <a href="more.html" class="read-more-btn">
+                    <span>★</span> READ MORE
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="strawberry-playlist-section">
+        <div class="split-grid-wrapper">
+
+            <div class="guestbook-message-box">
+                <h3 class="guestbook-title">LEAVE A MESSAGE!</h3>
+
+                <div class="message-stream">
+                    <div class="guest-post">
+                        <strong></strong>
+                        <p> ♡ شوكونيكو هو أكثر من مجرد متجر، إنه مكان يحيي الذكريات ويخلق لحظات لا تُنسى! ♡ </p>
+                    </div>
+                </div>
+
+                <div class="message-input-bar">
+                    <input type="text" placeholder="name" class="msg-name-input">
+                    <textarea placeholder="message" class="msg-text-input"></textarea>
+                    <button class="msg-submit-btn">➔</button>
+                </div>
+            </div>
+
+            <div class="playlist-grid-box">
+                <h3 class="playlist-grid-title" data-key="playlistTitle"> امل ان تستمتعوا بقائمة تشغيل شوكو الموسيقية!
+                </h3>
+
+                <div class="tracks-list-wrapper">
+                    <div class="music-track-row">
+                        <div class="track-media-group">
+                            <span class="track-index-num">01</span>
+                            <button class="chocolate-play-btn" onclick="toggleManualAudio('song1', this)">▶</button>
+                            <div class="track-meta-data">
+                                <span class="music-title-string">انا و اخي</span>
+                                <span class="music-artist-string"> سبيستون</span>
+                            </div>
+                        </div>
+                        <span class="music-time-stamp">[1:30]</span>
+                        <audio id="song1" src="assets/audio/أنا و أخي.mp3"></audio>
+                    </div>
+
+                    <div class="music-track-row">
+                        <div class="track-media-group">
+                            <span class="track-index-num">02</span>
+                            <button class="chocolate-play-btn" onclick="toggleManualAudio('song2', this)">▶</button>
+                            <div class="track-meta-data">
+                                <span class="music-title-string">أغنية أبي - شارة البداية</span>
+                                <span class="music-artist-string"> سبيستون</span>
+                            </div>
+                        </div>
+                        <span class="music-time-stamp">[1:02]</span>
+                        <audio id="song2" src="assets/audio/أغنية أبي - شارة البداية .mp3"></audio>
+                    </div>
+
+                    <div class="music-track-row">
+                        <div class="track-media-group">
+                            <span class="track-index-num">03</span>
+                            <button class="chocolate-play-btn" onclick="toggleManualAudio('song3', this)">▶</button>
+                            <div class="track-meta-data">
+                                <span class="music-title-string">Space Toon اغنية اسطورة النسر</span>
+                                <span class="music-artist-string"> سبيستون</span>
+                            </div>
+                        </div>
+                        <span class="music-time-stamp">[1:02]</span>
+                        <audio id="song3" src="assets/audio/اغنية اسطورة النسر Space Toon.mp3"></audio>
+                    </div>
+
+                    <div class="music-track-row">
+                        <div class="track-media-group">
+                            <span class="track-index-num">04</span>
+                            <button class="chocolate-play-btn" onclick="toggleManualAudio('song4', this)">▶</button>
+                            <div class="track-meta-data">
+                                <span class="music-title-string">سبيستون -ريمي</span>
+                                <span class="music-artist-string"> سبيستون</span>
+                            </div>
+                        </div>
+                        <span class="music-time-stamp">[2:05]</span>
+                        <audio id="song4" src="assets/audio/سبيستون -ريمي .mp3"></audio>
+                    </div>
+
+                    <div class="music-track-row">
+                        <div class="track-media-group">
+                            <span class="track-index-num">05</span>
+                            <button class="chocolate-play-btn" onclick="toggleManualAudio('song5', this)">▶</button>
+                            <div class="track-meta-data">
+                                <span class="music-title-string">اغنية البؤساء (في أصعب الاوقات)</span>
+                                <span class="music-artist-string"> سبيستون</span>
+                            </div>
+                        </div>
+                        <span class="music-time-stamp">[1:34]</span>
+                        <audio id="song5" src="assets/audio/اغنية البؤساء (في أصعب الاوقات)  سبيستون.mp3"></audio>
+                    </div>
+
+                    <div class="music-track-row">
+                        <div class="track-media-group">
+                            <span class="track-index-num">06</span>
+                            <button class="chocolate-play-btn" onclick="toggleManualAudio('song6', this)">▶</button>
+                            <div class="track-meta-data">
+                                <span class="music-title-string">اغنية الحماة الأبطال</span>
+                                <span class="music-artist-string"> Space Toon</span>
+                            </div>
+                        </div>
+                        <span class="music-time-stamp">[1:45]</span>
+                        <audio id="song6" src="assets/audio/اغنية الحماة الأبطال  Space Toon.mp3"></audio>
+                    </div>
+
+                    <div class="music-track-row">
+                        <div class="track-media-group">
+                            <span class="track-index-num">07</span>
+                            <button class="chocolate-play-btn" onclick="toggleManualAudio('song7', this)">▶</button>
+                            <div class="track-meta-data">
+                                <span class="music-title-string">اغنية بداية البؤساء</span>
+                                <span class="music-artist-string"> Space Toon</span>
+                            </div>
+                        </div>
+                        <span class="music-time-stamp">[1:45]</span>
+                        <audio id="song7" src="assets/audio/اغنية بداية البؤساء .mp3"></audio>
+                    </div>
+
+                    <div class="music-track-row">
+                        <div class="track-media-group">
+                            <span class="track-index-num">08</span>
+                            <button class="chocolate-play-btn" onclick="toggleManualAudio('song8', this)">▶</button>
+                            <div class="track-meta-data">
+                                <span class="music-title-string">اغنية بداية بلاك كات (القط الأسود)</span>
+                                <span class="music-artist-string"> Space Toon</span>
+                            </div>
+                        </div>
+                        <span class="music-time-stamp">[1:11]</span>
+                        <audio id="song8" src="assets/audio/اغنية بداية بلاك كات (القط الأسود) [Spacetoon].mp3"></audio>
+                    </div>
+
+                    <div class="music-track-row">
+                        <div class="track-media-group">
+                            <span class="track-index-num">09</span>
+                            <button class="chocolate-play-btn" onclick="toggleManualAudio('song9', this)">▶</button>
+                            <div class="track-meta-data">
+                                <span class="music-title-string">اغنية بداية حيوانات الجواهر سبيستون</span>
+                                <span class="music-artist-string"> Space Toon</span>
+                            </div>
+                        </div>
+                        <span class="music-time-stamp">[1:29]</span>
+                        <audio id="song9" src="assets/audio/اغنية بداية حيوانات الجواهر  سبيستون.mp3"></audio>
+                    </div>
+
+                    <div class="music-track-row">
+                        <div class="track-media-group">
+                            <span class="track-index-num">10</span>
+                            <button class="chocolate-play-btn" onclick="toggleManualAudio('song10', this)">▶</button>
+                            <div class="track-meta-data">
+                                <span class="music-title-string">اغنية دريلاند</span>
+                                <span class="music-artist-string"> Space Toon</span>
+                            </div>
+                        </div>
+                        <span class="music-time-stamp">[1:29]</span>
+                        <audio id="song10" src="assets/audio/اغنية بداية دريلاند سبيستون.mp3"></audio>
+                    </div>
+
+                    <div class="music-track-row">
+                        <div class="track-media-group">
+                            <span class="track-index-num">11</span>
+                            <button class="chocolate-play-btn" onclick="toggleManualAudio('song11', this)">▶</button>
+                            <div class="track-meta-data">
+                                <span class="music-title-string">اغنية صقور الأرض</span>
+                                <span class="music-artist-string"> Space Toon</span>
+                            </div>
+                        </div>
+                        <span class="music-time-stamp">[1:43]</span>
+                        <audio id="song11" src="assets/audio/اغنية بداية صقور الأرض   سبيستون.mp3"></audio>
+                    </div>
+
+                    <div class="music-track-row">
+                        <div class="track-media-group">
+                            <span class="track-index-num">12</span>
+                            <button class="chocolate-play-btn" onclick="toggleManualAudio('song12', this)">▶</button>
+                            <div class="track-meta-data">
+                                <span class="music-title-string">حلمي الصغير </span>
+                                <span class="music-artist-string"> Space Toon</span>
+                            </div>
+                        </div>
+                        <span class="music-time-stamp">[1:30]</span>
+                        <audio id="song12" src="assets/audio/حلمي الصغير (بدون موسيقى) رشا رزق سبيستون.mp3"></audio>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <footer class="choko-footer">
+        <div class="footer-container">
+            <div class="footer-logo-section">
+                <span class="footer-brand">ChokoNeko ★ شوكونيكو</span>
+                <p class="footer-tagline">حيث تلتقي الذكريات بالخيال</p>
+            </div>
+
+            <div class="footer-copyright">
+                &copy; 2026 ChokoNeko. All rights reserved. 🐾
+            </div>
+        </div>
+    </footer>
+
+    <!-- PRODUCT & CHECKOUT MODAL -->
+    <div id="productModal" class="modal-overlay">
+        <div class="modal-card">
+            <button type="button" id="closeModalBtn" class="modal-close-btn">&times;</button>
+
+            <!-- STEP 1: PRODUCT PREVIEW -->
+            <div id="modalProductView">
+                <div class="modal-img-box">
+                    <img id="modalProductImg" src="" alt="Product Image">
+                </div>
+                <h3 id="modalProductName">اسم المنتج</h3>
+                <div id="modalProductPrice" class="modal-price">0 DA</div>
+
+                <!-- QUANTITY CONTROLS -->
+                <div class="qty-control">
+                    <label>الكمية:</label>
+                    <div class="qty-btn-group">
+                        <button type="button" id="qtyMinus" class="qty-btn">-</button>
+                        <input type="text" id="qtyInput" value="1" readonly>
+                        <button type="button" id="qtyPlus" class="qty-btn">+</button>
+                    </div>
+                </div>
+
+                <div class="modal-actions">
+                    <button type="button" id="addToCartBtn" class="modal-btn btn-cart">إضافة للسلة 🛒</button>
+                    <button type="button" id="directBuyBtn" class="modal-btn btn-buy">شراء مباشرة ⚡</button>
+                </div>
+            </div>
+
+            <!-- STEP 2: DIRECT CHECKOUT FORM -->
+            <form id="modalCheckoutForm" style="display: none;">
+                <h4 class="form-title">معلومات التوصيل 📦</h4>
+                <div class="form-grid">
+                    <div class="form-group full-width">
+                        <label>الاسم الكامل *</label>
+                        <input type="text" id="custName" required placeholder="مثال: أمينة بن علي">
+                    </div>
+                    <div class="form-group full-width">
+                        <label>رقم الهاتف *</label>
+                        <input type="tel" id="custPhone" required placeholder="06XX XX XX XX">
+                    </div>
+                    <div class="form-group">
+                        <label>الولاية *</label>
+                        <input type="text" id="custWilaya" required placeholder="الجزائر">
+                    </div>
+                    <div class="form-group">
+                        <label>البلدية *</label>
+                        <input type="text" id="custCommune" required placeholder="القبة">
+                    </div>
+                    <div class="form-group full-width">
+                        <label>العنوان التفصيلي</label>
+                        <input type="text" id="custAddress" placeholder="الحي، شارع...">
+                    </div>
+                    <div class="form-group full-width">
+                        <label>حساب الانستغرام (اختياري)</label>
+                        <input type="text" id="custInstagram" placeholder="@username">
+                    </div>
+                    <div class="form-group full-width">
+                        <label>ملاحظات إضافية</label>
+                        <textarea id="custNotes" rows="2" placeholder="أي ملاحظة بخصوص الطلب..."></textarea>
+                    </div>
+                </div>
+
+                <div class="modal-actions">
+                    <button type="button" id="backToProductBtn" class="modal-btn btn-back-modal">تراجع</button>
+                    <button type="submit" class="modal-btn btn-submit">تأكيد الطلب ✉️</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- CART DRAWER / OVERLAY (NOW OUTSIDE PRODUCT MODAL) -->
+    <div id="cartDrawer" class="cart-drawer-overlay">
+        <div class="cart-drawer">
+            <div class="cart-drawer-header">
+                <h3>سلة التسوق 🛒</h3>
+                <button type="button" id="closeCartBtn" class="cart-close-btn">&times;</button>
+            </div>
+
+            <!-- Dynamic Cart Items Container -->
+            <div id="cartItemsContainer" class="cart-items-container">
+                <p class="empty-cart-msg">السلة فارغة حالياً 🌸</p>
+            </div>
+
+            <!-- Footer with Total & Checkout -->
+            <div class="cart-drawer-footer">
+                <div class="cart-total-box">
+                    <span>المجموع الكلي:</span>
+                    <span id="cartTotalPrice">0 DA</span>
+                </div>
+                <button type="button" id="cartCheckoutBtn" class="modal-btn btn-buy" style="width: 100%;">إتمام الطلب
+                    ⚡</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
